@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="temperature">
+            <div class="btn">
+                <a href="index.html"  class="Calculator" title="Calculator">C</a>
+            </div>
+            <div class="celsius"> 
+                <h4>Celsius</h4>           
+                <input type="number" name="" id="celsius">
+            </div>
+            <div class="fehrenheit">
+                <h4>fehrenheit</h4>
+                <input type="text" name="" id="fehrenheit" readonly>
+            </div>
+            <div class="kelvin">
+                <h4>kelvin</h4>
+                <input type="text" name="" id="kelvin" readonly>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // $(document).ready(function(){
+        //     $("button").on("click", function(){
+        //         const Celsius = $("#celsius").val();
+        //         if (Celsius != ""){
+        //             const CtoF = $('#celsius').val() * 9/5 + 32;
+        //             $("#fehrenheit").val(CtoF + "°F");
+        //             const CtoK = parseInt($('#celsius').val()) + 273.15;
+        //             $("#kelvin").val(CtoK + " K");
+        //         } else {
+        //             alert ("please enter temperature in Celsius");
+        //         };
+
+        //         $('#celsius').focus().select().val()
+        //     });
+        // });
+
+        // $(document).ready(function(){
+        //     $(".celsius").find("#celsius").on("click", function(){
+        //         $("body").remove()
+        //     })
+        // })
+
+
+        $(document).ready(function(){
+                $(".celsius").find("#celsius").on("input", function(){
+                    const Celsius = $(".celsius").find("#celsius").val();
+                        if(Celsius != ''){
+                        const CtoF = ($(".celsius").find("#celsius").val() * 9/5) + 32;
+                        const CtoK = (parseInt($(".celsius").find("#celsius").val())) + 273;
+                        $(".fehrenheit").find("#fehrenheit").val(CtoF);
+                        $(".kelvin").find("#kelvin").val(CtoK);
+                    }else {
+                        $(".fehrenheit").find("#fehrenheit").val("");
+                        $(".kelvin").find("#kelvin").val("");
+                    }
+                })
+        });
+
+        // (document).ready(function(){
+        //     const Celsius = $(".container > .temperature > .celsius").find("#celsius").val();
+        //     if(Celsius != ""){  
+        //         $(".container > .temperature > .celsius").find("#celsius").on("input", function(){
+        //             const CtoF = ($(".container > .temperature > .celsius").find("#celsius").val() * 9/5) + 32;
+        //             const CtoK = (parseInt($(".container > .temperature > .celsius").find("#celsius").val())) + 273;
+        //             $(".container > .temperature > .fehrenheit").find("#fehrenheit").val(CtoF);
+        //             $(".container > .temperature > .kelvin").find("#kelvin").val(CtoK);
+        //         })  
+        //     }else {
+        //         $(".container > .temperature > .fehrenheit").find("#fehrenheit").val("");
+        //         $(".container > .temperature > .kelvin").find("#kelvin").val("");              
+        //     }
+        // })
+
+        
+    </script>
+</body>
+</html>
